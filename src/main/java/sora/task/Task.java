@@ -27,9 +27,6 @@ public class Task {
      * @param description the description of the task.
      */
     public Task(TaskType type, String description) {
-        assert type != null : "Task type should not be null";
-        assert description != null && !description.isBlank() : "Description should not be null or empty";
-
         this.type = type;
         this.description = description;
         this.isDone = false;
@@ -57,8 +54,6 @@ public class Task {
      * Marks the task as done.
      */
     public void markAsDone() {
-        assert !isDone : "Task is already marked as done";
-
         this.isDone = true;
     }
 
@@ -66,8 +61,6 @@ public class Task {
      * Marks the task as not done.
      */
     public void markAsNotDone() {
-        assert isDone : "Task is already marked as not done";
-
         this.isDone = false;
     }
 
@@ -77,8 +70,6 @@ public class Task {
      * @return the formatted string with task type, status, and description.
      */
     public String toString() {
-        assert description != null : "Description must not be null when converting toString";
-
         String typeIcon = switch (type) {
         case TODO -> "T";
         case DEADLINE -> "D";
